@@ -1,6 +1,9 @@
+<p align="center">
+  <img src="assets/home.PNG" width="100%" alt="FilmFetcher Home Banner">
+</p>
 
-![FilmFetcher Home](assets/home.PNG)
 # 🎥 FilmFetcher
+
 A modern, full-stack movie discovery and management application built with **Spring Boot 3** and **Angular 19**. FilmFetcher provides a seamless experience for browsing trending movies and maintaining a personalized "favorites" list, secured by **Auth0** enterprise-grade authentication.
 
 ---
@@ -16,13 +19,25 @@ A modern, full-stack movie discovery and management application built with **Spr
 - **Professional Notifications:** Integrated **SweetAlert2** for toasts and interactive alerts.
 
 ---
-![Movie Details](assets/movie_details.PNG)
-![Favorite](assets/favorites.PNG)
-![signin](assets/signin.PNG)
-![signup](assets/signup.PNG)
-![search](assets/search_result.PNG)
 
+## 📸 Application Gallery
 
+### User Experience & Discovery
+| Movie Details | Search Results |
+|:---:|:---:|
+| <img src="assets/movie_details.PNG" width="400"> | <img src="assets/search_result.PNG" width="400"> |
+
+### Personal Collection
+| My Favorites List |
+|:---:|
+| <img src="assets/favorites.PNG" width="600"> |
+
+### Authentication (via Auth0)
+| Sign In | Sign Up |
+|:---:|:---:|
+| <img src="assets/signin.PNG" width="400"> | <img src="assets/signup.PNG" width="400"> |
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -34,19 +49,17 @@ A modern, full-stack movie discovery and management application built with **Spr
 
 ### Backend
 - **Framework:** Spring Boot 3.x (Java 21)
-- **Data:** Spring Data JPA (Hibernate)
+- **Data Access:** Spring Data JPA (Hibernate)
 - **Architecture:** DTO Pattern using **Java Records**
 
 ---
 
 ## 🔐 Authentication Flow
 
-
-
 1. **Frontend:** User clicks "Login" and is redirected to the Auth0 Universal Login page.
 2. **Auth0:** After successful login, Auth0 redirects the user back to the Angular app with an **Access Token**.
 3. **API Calls:** Angular attaches this token to the `Authorization` header.
-4. **Backend:** Spring Boot validates the token using Auth0.
+4. **Backend:** Spring Boot validates the token using Auth0 public keys.
 
 ---
 
@@ -54,7 +67,7 @@ A modern, full-stack movie discovery and management application built with **Spr
 
 ### Backend Architecture
 - **Controllers:** REST endpoints protected by Auth0 scope checks.
-- **Security Config:** Configured as an **OAuth2 Resource Server** to validate JWTs from your Auth0 domain.
+- **Security Config:** Configured as an **OAuth2 Resource Server** to validate JWTs.
 - **Entities:** JPA models for `UserEntity` and `FavoriteMovie`.
 - **DTOs:** Immutable Java Records for clean data transfer.
 - **Exceptions:** GlobalExceptionHandler for mapping custom domain exceptions.
@@ -66,15 +79,15 @@ A modern, full-stack movie discovery and management application built with **Spr
 ### 1. Prerequisites
 - **Java 21** or higher
 - **Node.js** (LTS version)
-- **Auth0 Account:** A created "Single Page Application" (for Angular) and "API" (for Spring Boot).
+- **Auth0 Account:** SPA for Angular and API for Spring Boot.
 - **TMDB API Key** (Free from [themoviedb.org](https://www.themoviedb.org/))
 
-### 2. Backend Setup
-1. Open `src/main/resources/application.properties`.
-2. Configure your Auth0 audience and issuer:
-   ```properties
-   api.url=https://api.themoviedb.org/3/
-   api.key= GET YOUR API KEY FROM TMDB
-   
-   jwt.key= GENERATE SECRET KEY 
-   jwt.expiration= TOKEN EXPIRATION TIME IN SECONDS
+### 2. Backend Configuration
+Create or edit your `src/main/resources/application.properties`:
+
+```properties
+api.url=[https://api.themoviedb.org/3/](https://api.themoviedb.org/3/)
+api.key=YOUR_TMDB_API_KEY
+
+jwt.key=YOUR_GENERATED_SECRET_KEY
+jwt.expiration=86400
