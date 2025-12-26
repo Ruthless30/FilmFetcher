@@ -66,5 +66,8 @@ A modern, full-stack movie discovery and management application built with **Spr
 1. Open `src/main/resources/application.properties`.
 2. Configure your Auth0 audience and issuer:
    ```properties
-   spring.security.oauth2.resourceserver.jwt.issuer-uri=https://YOUR_[DOMAIN.auth0.com/](https://DOMAIN.auth0.com/)
-   spring.security.oauth2.resourceserver.jwt.audiences=YOUR_API_IDENTIFIER
+   api.url=https://api.themoviedb.org/3/
+   api.key= GET YOUR API KEY FROM TMDB
+   
+   jwt.key= GENERATE SECRET KEY 
+   jwt.expiration= TOKEN EXPIRATION TIME IN SECONDS
