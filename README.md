@@ -1,5 +1,5 @@
 # 🎥 FilmFetcher
-
+![FilmFetcher Home](assets/home.PNG)
 A modern, full-stack movie discovery and management application built with **Spring Boot 3** and **Angular 19**. FilmFetcher provides a seamless experience for browsing trending movies and maintaining a personalized "favorites" list, secured by **Auth0** enterprise-grade authentication.
 
 ---
