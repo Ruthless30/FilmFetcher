@@ -1,0 +1,234 @@
+:host {
+  display: block;
+}
+.movie-section-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-full-bg {
+  position: absolute;
+  inset: 0;
+  background: #0f0f0f;
+  z-index: -1;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+  top: 1.5rem;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+p{
+  font-size: 1.2rem;
+  color:white;
+}
+.title-accent-bar {
+  width: 5px;
+  height: 60px;
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.view-all-btn:hover {
+  color: #fbbf24;
+}
+
+.view-all-btn:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+.arrow-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.movies-grid::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.3) 50%,
+    transparent 100%
+  );
+}
+/* =========================================
+   1. Base Animation & Utility
+========================================= */
+
+/* The pulsing effect - Dark theme gray to lighter gray */
+@keyframes skeleton-pulse-dark {
+  0% {
+    background-color: #2a2a2a; /* Dark base */
+  }
+  50% {
+    background-color: #3f3f3f; /* Lighter pulse */
+  }
+  100% {
+    background-color: #2a2a2a; /* Back to base */
+  }
+}
+
+/* Utility class applied to all placeholder shapes */
+.sk-pulse {
+  animation: skeleton-pulse-dark 1.5s ease-in-out infinite;
+  border-radius: 4px; /* Soft edges for all placeholders */
+  display: block;
+  /* Ensure fallback color if animation fails */
+  background-color: #2a2a2a;
+}
+
+.skeleton-wrapper {
+  width: 100%;
+  padding: 20px 0; /* Adjust padding as needed */
+}
+
+
+/* =========================================
+   2. Header Skeleton Layout
+========================================= */
+
+.skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px; /* Spacing between header and grid */
+}
+
+.skeleton-title-group {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Gap between accent bar and title text */
+}
+
+/* --- Header Component Sizes --- */
+
+/* Mimics .title-accent-bar */
+.sk-accent-bar {
+  width: 6px;
+  height: 36px; /* Slightly taller than title text */
+}
+
+/* Mimics h2.section-title */
+.sk-title-text {
+  width: 220px; /* Fixed width for title placeholder */
+  height: 28px;
+}
+
+/* Mimics .view-all-btn */
+.sk-button {
+  width: 110px;
+  height: 42px;
+  border-radius: 8px; /* Buttons often have rounder corners */
+}
+
+
+/* =========================================
+   3. Grid Skeleton Layout
+========================================= */
+
+.skeleton-grid {
+  display: grid;
+  /* Responsive Grid: Creates as many columns as fit.
+     Columns are at least 220px wide, sharing remaining space equally.
+     Adjust '220px' to match your actual movie card minimum width.
+  */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px; /* Spacing between cards */
+  width: 100%;
+}
+
+
+/* =========================================
+   4. Movie Card Skeleton Components
+========================================= */
+
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Spacing between poster and text lines */
+}
+
+/* --- Poster Aspect Ratio Hack --- */
+.sk-poster {
+  width: 100%;
+  height: 0;
+  /* Padding-top creates height based on width.
+     150% creates a standard 2:3 movie poster ratio.
+  */
+  padding-top: 150%;
+  border-radius: 8px; /* Posters often have rounded corners */
+}
+
+/* Generic text line placeholder styles */
+.sk-line {
+  height: 18px;
+}
+
+
+/* Mimics year/rating (shorter line) */
+.sk-line-short {
+  width: 40%;
+}
+/* Force the skeleton container to span across ALL grid columns */
+.movies-grid > .skeleton-wrapper,
+.movies-grid > .section-container { /* Include this class if you still use it */
+  grid-column: 1 / -1;
+  width: 100%;
+}

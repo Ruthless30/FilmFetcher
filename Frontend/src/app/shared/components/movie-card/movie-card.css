@@ -1,0 +1,130 @@
+/* movie-card.component.css */
+
+:host {
+  display: block;
+}
+
+.product-card {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8),
+  0 0 30px rgba(251, 191, 36, 0.2);
+}
+
+.product-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.product-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.year-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  color: #fbbf24;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  z-index: 2;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.card-image-container {
+  position: relative;
+  height: 75%;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 26, 0.9) 0%,
+    transparent 50%
+  );
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-content {
+  height: 25%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.95) 0%,
+    #1a1a1a 100%
+  );
+}
+
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    height: 400px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .year-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    height: 350px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+}

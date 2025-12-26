@@ -1,0 +1,12 @@
+<div class="product-card" (click)="onCardClick()">
+  <div class="year-badge">{{ movie.releaseYear }}</div>
+
+  <div class="card-image-container">
+    <img [src]="movie.poster_path" [alt]="movie.originalTitle" class="card-image">
+    <div class="card-overlay"></div>
+  </div>
+
+  <div class="card-content">
+    <h3 class="card-title">{{ movie.originalTitle }}</h3>
+  </div>
+</div>

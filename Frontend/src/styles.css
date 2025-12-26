@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  width: 100%;
+}
+body {
+  /* 1. Base Dark Color */
+  background-color: #0f0f0f;
+
+  /* 2. The Gold Gradient */
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 60%
+  );
+
+  /* 3. Keep the gradient fixed so it doesn't scroll away */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+html {
+  scroll-behavior: smooth;
+}
+

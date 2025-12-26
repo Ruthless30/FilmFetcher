@@ -1,0 +1,61 @@
+<div class="section-container">
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="section-title-wrapper">
+      <div class="title-accent-bar"></div>
+      <h2 class="section-title">{{ title }}</h2>
+    </div>
+
+    @if(isShowing){
+      <button class="view-all-btn" (click)="onViewAll()">
+        <span>View All</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    }
+
+  </div>
+
+  <div class="movies-grid">
+    @for (movie of movies; track movie.id) {
+      <app-movie-card
+        [routerLink]="['/movie-details/', movie.id]"
+        [movie]="movie">
+      </app-movie-card>
+    } @empty {
+      @if (isLoading) {
+        <div class="skeleton-wrapper">
+          <div class="skeleton-grid">
+            <div class="skeleton-card" *ngFor="let i of [1,2,3,4,5]">
+              <div class="sk-poster sk-pulse"></div>
+              <div class="sk-line sk-line-title sk-pulse"></div>
+              <div class="sk-line sk-line-short sk-pulse"></div>
+            </div>
+          </div>
+        </div>
+       }@else{
+        @if (movies.length === 0) {
+          <div class="empty-state">
+            <p>Your list is empty</p>
+            <p>You haven't added any movies to your favorites yet.</p>
+          </div>
+
+        }
+        @else {
+          <div class="error-message">
+            <p>No movies found. Please check your connection or try again later.</p>
+          </div>
+        }
+      }
+
+
+
+
+    }
+  </div>
+
+
+
+</div>

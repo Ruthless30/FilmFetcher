@@ -1,0 +1,119 @@
+<div class="signin-page">
+  <button class="back-button" routerLink="/home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Back
+  </button>
+
+  <div class="logo-container">
+    <div class="logo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 3h18v18H3V3zm3 3v12h12V6H6zm2 2h8v8H8V8zm2 2v4h4v-4h-4z"/>
+        <circle cx="5" cy="5" r="1"/>
+        <circle cx="19" cy="5" r="1"/>
+        <circle cx="5" cy="19" r="1"/>
+        <circle cx="19" cy="19" r="1"/>
+      </svg>
+    </div>
+    <h1 class="logo-text">
+      Movie<span class="logo-accent">Fetcher</span>
+    </h1>
+  </div>
+
+  <div class="signin-card">
+
+    <div class="welcome-section">
+      <h2 class="welcome-title">WELCOME BACK</h2>
+      <p class="welcome-subtitle">Sign in to continue your cinematic journey</p>
+    </div>
+
+    <form class="signin-form" #loginForm="ngForm" (ngSubmit)="onSignIn(loginForm)">
+
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <div class="input-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Enter your username"
+            [(ngModel)]="username"
+            #userVar="ngModel"
+            [class.input-error]="userVar.invalid && userVar.touched"
+            name="username"
+            required
+          />
+        </div>
+        @if (userVar.invalid && userVar.touched) {
+          <small class="error-msg">
+            Username is required.
+          </small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="input-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="input-icon">
+            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <input
+            type="password"
+            class="form-input"
+            placeholder="Enter your password"
+            [(ngModel)]="password"
+            name="password"
+            #passVar="ngModel"
+            required
+            minlength="6"
+            [class.input-error]="passVar.invalid && passVar.touched"
+          />
+        </div>
+        @if (passVar.invalid && passVar.touched) {
+          @if (passVar.errors?.['required']) {
+            <small class="error-msg">Password is required.</small>
+          }
+          @if (passVar.errors?.['minlength']) {
+            <small class="error-msg">Password must be at least 6 characters.</small>
+          }
+        }
+      </div>
+
+      <div class="form-options">
+        <label class="checkbox-container">
+          <input
+            type="checkbox"
+            [(ngModel)]="rememberMe"
+            name="rememberMe"
+          />
+          <span class="checkbox-label">Remember me</span>
+        </label>
+        <button type="button" class="forgot-link" (click)="forgotPassword()">
+          Forgot password?
+        </button>
+      </div>
+
+      <button
+        type="submit"
+        class="signin-button"
+        [disabled]="loginForm.invalid"
+        [style.opacity]="loginForm.invalid ? '0.5' : '1'">
+        Sign In
+      </button>
+
+    </form>
+
+    <div class="signup-section">
+      <span class="signup-text">Don't have an account?</span>
+      <button type="button" class="signup-link" (click)="goToSignUp()">
+        Sign Up
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<!-- Luxury Header Component -->
+<header class="navbar-luxury">
+  <div class="container">
+    <div class="navbar-content">
+
+      <!-- Logo with Icon -->
+      <a class="navbar-brand-container">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-film">
+            <path d="M3 3h18v18H3V3zm3 3v12h12V6H6zm2 2h8v8H8V8zm2 2v4h4v-4h-4z"/>
+            <circle cx="5" cy="5" r="1"/>
+            <circle cx="19" cy="5" r="1"/>
+            <circle cx="5" cy="19" r="1"/>
+            <circle cx="19" cy="19" r="1"/>
+          </svg>
+        </div>
+        <span class="navbar-brand">Movie<span class="brand-accent">Fetcher</span></span>
+      </a>
+
+
+      <!-- Centered Navigation -->
+      <nav class="nav-links-center">
+        <a routerLink="/home"
+           class="nav-link">
+          Home
+        </a>
+
+        @if(isLoggedIn()){
+          <a routerLink="/favorites"
+             class="nav-link">
+            Favorites
+          </a>
+        }
+
+        <a class="nav-link">
+          About
+        </a>
+
+        <a class="nav-link" routerLink="./" fragment="contact">
+          Contact
+        </a>
+      </nav>
+
+      @if(isLoggedIn()){
+        <button class="btn-luxury-cta" (click)="onLogout()">
+          <span class="btn-text">Log out</span>
+        </button>
+      } @else {
+        <button routerLink="/signin" class="btn-luxury-cta">
+          <span class="btn-text">Sign In</span>
+        </button>
+      }
+
+
+    </div>
+  </div>
+</header>
