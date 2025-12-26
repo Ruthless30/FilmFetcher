@@ -26,7 +26,6 @@ A modern, full-stack movie discovery and management application built with **Spr
 
 ### Backend
 - **Framework:** Spring Boot 3.x (Java 21)
-- **Security:** Spring Security (OAuth2 Resource Server)
 - **Data:** Spring Data JPA (Hibernate)
 - **Architecture:** DTO Pattern using **Java Records**
 
@@ -39,7 +38,7 @@ A modern, full-stack movie discovery and management application built with **Spr
 1. **Frontend:** User clicks "Login" and is redirected to the Auth0 Universal Login page.
 2. **Auth0:** After successful login, Auth0 redirects the user back to the Angular app with an **Access Token**.
 3. **API Calls:** Angular attaches this token to the `Authorization` header.
-4. **Backend:** Spring Boot validates the token against Auth0’s public keys (JWKS) before processing requests.
+4. **Backend:** Spring Boot validates the token using Auth0.
 
 ---
 
@@ -48,7 +47,7 @@ A modern, full-stack movie discovery and management application built with **Spr
 ### Backend Architecture
 - **Controllers:** REST endpoints protected by Auth0 scope checks.
 - **Security Config:** Configured as an **OAuth2 Resource Server** to validate JWTs from your Auth0 domain.
-- **Entities:** JPA models for `UserEntity` (linked by Auth0 `sub` ID) and `FavoriteMovie`.
+- **Entities:** JPA models for `UserEntity` and `FavoriteMovie`.
 - **DTOs:** Immutable Java Records for clean data transfer.
 - **Exceptions:** GlobalExceptionHandler for mapping custom domain exceptions.
 
