@@ -79,7 +79,7 @@ A modern, full-stack movie discovery and management application built with **Spr
 ### 1. Prerequisites
 - **Java 21** or higher
 - **Node.js** (LTS version)
-- **Auth0 Account:** SPA for Angular and API for Spring Boot.
+- **Auth0:** for Spring Boot.
 - **TMDB API Key** (Free from [themoviedb.org](https://www.themoviedb.org/))
 
 ### 2. Backend Configuration
@@ -90,7 +90,7 @@ api.url=[https://api.themoviedb.org/3/](https://api.themoviedb.org/3/)
 api.key=YOUR_TMDB_API_KEY
 
 jwt.key=YOUR_GENERATED_SECRET_KEY
-jwt.expiration=86400
+jwt.expiration=EXPIRATION TIME IN SECONDS
 ```
 ---
 ## 🏛️ Data Attribution
