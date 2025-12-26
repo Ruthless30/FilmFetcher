@@ -94,6 +94,9 @@ jwt.expiration=86400
 ```
 ---
 ## 🏛️ Data Attribution
-<p align="center"> <img src="[https://www.google.com/search?q=https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg](https://img.icons8.com/color/512/themoviedb.png)" alt="TMDB Logo" width="150"> </p>
+<p align="center"> <img src="https://img.icons8.com/color/512/themoviedb.png" width="100" alt="TMDB Logo"> </p>
 
-This project uses the TMDB API but is not endorsed or certified by TMDB.
+<p align="center"> This project uses the <strong>TMDB API</strong> but is not endorsed or certified by TMDB.
+
+
+Movie data, images, and metadata are provided by <a href="https://www.themoviedb.org/">The Movie Database</a>. </p>
