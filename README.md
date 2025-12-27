@@ -86,11 +86,11 @@ A modern, full-stack movie discovery and management application built with **Spr
 Create or edit your `src/main/resources/application.properties`:
 
 ```properties
-api.url=[https://api.themoviedb.org/3/](https://api.themoviedb.org/3/)
+api.url=https://api.themoviedb.org/3/
 api.key=YOUR_TMDB_API_KEY
 
 jwt.key=YOUR_GENERATED_SECRET_KEY
-jwt.expiration=EXPIRATION TIME IN SECONDS
+jwt.expiration=EXPIRATION_TIME_IN_SECONDS
 ```
 ---
 ## 🏛️ Data Attribution
